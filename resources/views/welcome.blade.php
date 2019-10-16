@@ -71,7 +71,6 @@
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Logar</a>
-
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Registrar</a>
                         @endif
@@ -81,7 +80,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Crud_laravel
+                    Cadastra_laravel
                 </div>
 
                 <div class="links">

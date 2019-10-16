@@ -14,7 +14,10 @@ class Carro extends Controller
      */
     public function index()
     {
-        //
+      $carros = Carros::all();
+
+      return view('layouts.listar', compact('carros',$carros));
+
     }
 
     /**
@@ -24,7 +27,7 @@ class Carro extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,14 +37,19 @@ class Carro extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
+
     {
         $Carro = new Carros();
         $Carro -> marca = $request->marca;
         $Carro -> modelo = $request->modelo;
         $Carro -> placa = $request->placa;
 
-        $Carro ->save();
-        dd('Dados salvo');
+        if($Carro ->save()){
+         return redirect()->route('home')->with('msg', 'Cadastrado com sucesso !');
+        }else{
+          return redirect()->route('home')->with('msg', 'Erro ao cadastrar');
+        }
     }
 
     /**
@@ -52,7 +60,7 @@ class Carro extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -88,4 +96,11 @@ class Carro extends Controller
     {
         //
     }
+
+    public function lista(){
+                        return '<h1>Informações para Contato</h1>
+                                   <b>Nome:</b> Luciano Alexandre <br />
+                                   <b>Telefone:</b> (xx) xxxxx-xxxx <br />
+                                   <b>e-mail:</b> luciano.cnrn@gmail.com <br />';
+            }
 }

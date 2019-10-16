@@ -1,3 +1,10 @@
+<?php if(session('msg')!= null){ ?>
+<?php if(Session()->has('msg')){ ?>
+  <div class="alert alert-dark" role="alert">
+    <?php echo session('msg'); ?>
+  </div>
+  <?php } ?>
+  <?php } ?>
 
 <form class="form-horizontal"  role="form" method="POST" action="carro" >
   @csrf
@@ -14,9 +21,8 @@
 <label for="exampleInputEmail1">Placa</label>
 <input type="text" class="form-control" name="placa" placeholder="Placa">
 </div>
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+<div class="form-inline">
+    <div class="col-sm-offset-1 col-sm-5">
       <button type="submit" class="btn btn-success">Cadastrar</button>
     </div>
-  </div>
 </form>
